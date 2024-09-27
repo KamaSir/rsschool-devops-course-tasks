@@ -6,7 +6,7 @@ resource "aws_iam_openid_connect_provider" "github" {
   ]
 
   thumbprint_list = [
-    "6938fd4d98bab03fa1c5a5e8a5d3e4a4a2a67276" # Thumbprint for GitHub's OIDC provider
+    "6938fd4d98bab03fa1c5a5e8a5d3e4a4a2a67276" 
   ]
 }
 
@@ -32,35 +32,35 @@ resource "aws_iam_role" "GithubActionsRole" {
   })
 }
 
-# Attach AmazonEC2FullAccess Policy
+#  AmazonEC2FullAccess Policy
 resource "aws_iam_policy_attachment" "ec2_policy_attachment" {
   name       = "GithubActionsRole-EC2"
   roles      = [aws_iam_role.GithubActionsRole.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 }
 
-# Attach AmazonRoute53FullAccess Policy
+#  AmazonRoute53FullAccess Policy
 resource "aws_iam_policy_attachment" "route53_policy_attachment" {
   name       = "GithubActionsRole-Route53"
   roles      = [aws_iam_role.GithubActionsRole.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonRoute53FullAccess"
 }
 
-# Attach AmazonS3FullAccess Policy
+#  AmazonS3FullAccess Policy
 resource "aws_iam_policy_attachment" "s3_policy_attachment" {
   name       = "GithubActionsRole-S3"
   roles      = [aws_iam_role.GithubActionsRole.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
-# Attach IAMFullAccess Policy
+#  IAMFullAccess Policy
 resource "aws_iam_policy_attachment" "iam_policy_attachment" {
   name       = "GithubActionsRole-IAM"
   roles      = [aws_iam_role.GithubActionsRole.name]
   policy_arn = "arn:aws:iam::aws:policy/IAMFullAccess"
 }
 
-# Attach AmazonVPCFullAccess Policy
+#  AmazonVPCFullAccess Policy
 resource "aws_iam_policy_attachment" "vpc_policy_attachment" {
   name       = "GithubActionsRole-VPC"
   roles      = [aws_iam_role.GithubActionsRole.name]
