@@ -6,12 +6,12 @@ resource "aws_iam_openid_connect_provider" "github" {
   ]
 
   thumbprint_list = [
-    "6938fd4d98bab03fa1c5a5e8a5d3e4a4a2a67276"  # Thumbprint for GitHub's OIDC provider
+    "6938fd4d98bab03fa1c5a5e8a5d3e4a4a2a67276" # Thumbprint for GitHub's OIDC provider
   ]
 }
 
 resource "aws_iam_role" "GithubActionsRole" {
-  name               = "GithubActionsRole"
+  name = "GithubActionsRole"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
